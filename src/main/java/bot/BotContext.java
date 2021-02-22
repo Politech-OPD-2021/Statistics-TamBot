@@ -5,14 +5,18 @@ import chat.tamtam.botapi.client.TamTamSerializer;
 import chat.tamtam.botapi.client.TamTamTransportClient;
 import chat.tamtam.botapi.client.impl.JacksonSerializer;
 import chat.tamtam.botapi.client.impl.OkHttpTransportClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan
+@PropertySource("classpath:bot.properties")
 public class BotContext {
-    private final String accessToken = "G3-CzCGXmqX2JCbR-EhvojVwBxm5cHd8-cG1BvYLlkw";
+    @Value("${accessToken}")
+    private String accessToken;
 
     @Bean
     public TamTamTransportClient tamTamTransportClient() {
