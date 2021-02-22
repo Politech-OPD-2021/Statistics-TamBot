@@ -1,5 +1,6 @@
 package bot;
 
+import bot.handler.BotStartedUpdateHandler;
 import chat.tamtam.bot.exceptions.TamTamBotException;
 import chat.tamtam.bot.longpolling.LongPollingBot;
 import chat.tamtam.bot.longpolling.LongPollingBotOptions;
@@ -17,8 +18,8 @@ public class StatisticsBot extends LongPollingBot {
     private static final Log LOG = LogFactory.getLog(MethodHandles.lookup().lookupClass());
 
     @Autowired
-    public StatisticsBot(TamTamClient client) {
-        super(client, LongPollingBotOptions.DEFAULT);
+    public StatisticsBot(TamTamClient client, BotStartedUpdateHandler botStartedUpdateHandler) {
+        super(client, LongPollingBotOptions.DEFAULT, botStartedUpdateHandler);
         LOG.info("StatisticsBot created");
     }
 
