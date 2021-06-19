@@ -1,5 +1,6 @@
 package bot.handler;
 
+import bot.Constants;
 import chat.tamtam.bot.annotations.UpdateHandler;
 import chat.tamtam.bot.builders.NewMessageBodyBuilder;
 import chat.tamtam.botapi.client.TamTamClient;
@@ -20,6 +21,8 @@ public class BotStartedUpdateHandler {
 
     @UpdateHandler
     public void handle(BotStartedUpdate update) throws ClientException {
-        new SendMessageQuery(client, NewMessageBodyBuilder.ofText("bot started").build()).userId(update.getUser().getUserId()).enqueue();
+        new SendMessageQuery(client, NewMessageBodyBuilder.ofText(Constants.HELLO_MSG).build()).userId(update.getUser().getUserId()).enqueue();
+
+        // TODO: check if user already has statistics of some chats
     }
 }

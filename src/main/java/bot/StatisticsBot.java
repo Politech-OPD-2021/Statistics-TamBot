@@ -1,5 +1,6 @@
 package bot;
 
+import bot.handler.BotAddedToChatUpdateHandler;
 import bot.handler.BotStartedUpdateHandler;
 import bot.handler.MessageCreatedUpdateHandler;
 import chat.tamtam.bot.exceptions.TamTamBotException;
@@ -21,8 +22,9 @@ public class StatisticsBot extends LongPollingBot {
     @Autowired
     public StatisticsBot(TamTamClient client,
                          BotStartedUpdateHandler botStartedUpdateHandler,
-                         MessageCreatedUpdateHandler messageCreatedUpdateHandler) {
-        super(client, LongPollingBotOptions.DEFAULT, botStartedUpdateHandler, messageCreatedUpdateHandler);
+                         MessageCreatedUpdateHandler messageCreatedUpdateHandler,
+                         BotAddedToChatUpdateHandler botAddedToChatUpdateHandler) {
+        super(client, LongPollingBotOptions.DEFAULT, botStartedUpdateHandler, messageCreatedUpdateHandler, botAddedToChatUpdateHandler);
         LOG.info("StatisticsBot created");
     }
 

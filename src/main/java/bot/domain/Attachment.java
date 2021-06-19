@@ -8,5 +8,8 @@ public class Attachment {
 
     @Id
     private Long messageId;
-    // + переменная для для хранения файлов
+    
+    //TODO: + переменная для для хранения файлов
+
+
 }
